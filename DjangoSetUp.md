@@ -39,6 +39,17 @@ In your Django project directory, use Django’s command-line utility to generat
 --- author: CharField with a maximum length of 100 characters.
 --- publication_year: IntegerField.
   Ensure the model is correctly set up for migrations.
+**models.py CODE in LibraryProject/bookshelf**
+$ cat models.py
+from django.db import models
+
+class Book(models.Model):
+    title = models.CharField(max_length=200)
+    author = models.CharField(max_length=100)
+    publication_year = models.IntegerField()
+
+    def __str__(self):
+        return f"{self.title} by {self.author} ({self.publication_year})"
 
 ### 1. Model Migration:
 
